@@ -1,13 +1,24 @@
 package bootcampsantander.dio.cartaovisitas.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
+import bootcampsantander.dio.cartaovisitas.App
+import bootcampsantander.dio.cartaovisitas.R
+import bootcampsantander.dio.cartaovisitas.data.CartaoVisitas
 import bootcampsantander.dio.cartaovisitas.databinding.ActivityAddCartaoVisitasBinding
-import bootcampsantander.dio.cartaovisitas.databinding.ActivityMainBinding
+import bootcampsantander.dio.cartaovisitas.ui.MainViewModel
+import bootcampsantander.dio.cartaovisitas.ui.MainViewModelFactory
 
 class AddCartaoVisitasActivity : AppCompatActivity() {
+
     private val binding by lazy { ActivityAddCartaoVisitasBinding.inflate(layoutInflater) }
+
+    private val mainViewModel: MainViewModel by viewModels {
+        MainViewModelFactory((application as App).repository)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
@@ -15,13 +26,21 @@ class AddCartaoVisitasActivity : AppCompatActivity() {
     }
 
     private fun insertListeners() {
+        binding.btnConfirm.setOnClickListener {
+            val cartaoVisitas = CartaoVisitas(
+                nome = binding.tilNome.editText?.text.toString(),
+                empresa = binding.tilEmpresa.editText?.text.toString(),
+                telefone = binding.tilTelefone.editText?.text.toString(),
+                email = binding.tilEmail.editText?.text.toString(),
+                fundoPersonalizado = binding.tilCor.editText?.text.toString()
+            )
+            mainViewModel.insert(cartaoVisitas)
+            Toast.makeText(this, R.string.label_show_success, Toast.LENGTH_SHORT).show()
+            finish()
+        }
 
         binding.btnClose.setOnClickListener {
             finish()
         }
-        binding.btnConfirm.setOnClickListener {
-            //TODO
-        }
-
     }
 }
