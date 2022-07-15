@@ -15,6 +15,3 @@
 
 ### Icone do App
 <img src="https://user-images.githubusercontent.com/95129252/179121988-57c9391f-4884-4067-bfb3-f4acc780ece2.jpeg" width="300px"/>
-![WhatsApp Image 2022-07-14 at 20 45 00 (2)](https://user-images.githubusercontent.com/95129252/179121988-57c9391f-4884-4067-bfb3-f4acc780ece2.jpeg)
-![WhatsApp Image 2022-07-14 at 20 45 00 (1)](https://user-images.githubusercontent.com/95129252/179121990-302f6899-98cd-44c1-b8df-89602592985a.jpeg)
-![WhatsApp Image 2022-07-14 at 20 45 00](https://user-images.githubusercontent.com/95129252/179121992-3c822ac7-8515-4db0-88ac-4038dde0c01c.jpeg)
